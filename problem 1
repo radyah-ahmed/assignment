@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <math.h>
+int main()
+{
+  double lemda, slit_seperation, theta;
+    printf("Enter wavelength in nanometers, slit separation in micrometers, and angle in degrees: \n");
+    scanf("%lf %lf %lf", &lemda, &slit_seperation, &theta);
+
+    if (lemda < 380 || lemda > 750)
+    {
+        printf("Out of the range. Please enter a valid number.\n");
+        return 0;
+    }
+
+    double wavelength = lemda * 0.000000001;
+    double d = slit_seperation * 0.000001;
+    double angle = theta * 3.1416 / 180;
+
+    int m = (d * sin(angle)) / wavelength;
+
+    printf("%d-th order maxima\n", m);
+
+    return 0;
+}
